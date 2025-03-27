@@ -74,10 +74,25 @@ git checkout master
 - git reset --hard
 
 19.加上雲端倉庫
+- git remote add origin https://github.com/ImAries0325/0319-demo.git
 
-20.檢視雲端倉庫url
+20.推送到雲端倉庫
+- git push -u origin master
+- git push
+
+21.檢視雲端倉庫url
 - git remote -v
 - origin https://github.com/ImAries0325/0319-demo.git (fetch)
+
+22.複製專案
+- git clone https://github.com/ImAries0325/0319-demo.git
+
+
+
+
+
+
+
 ### 常用指令
 
 1.git init
