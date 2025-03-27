@@ -34,3 +34,6 @@
     A.image/ 意思是image資料的檔案不被控管
     B.pic-1.jpg 意思是pic-1.jpg這個img不被控管
     C.*.jpg 意思是所有jpg副檔名都不控管
+
+4.快速註解的方式
+    在你需要註解的那行按下"ctrl + /"
