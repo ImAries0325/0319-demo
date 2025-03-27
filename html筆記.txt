@@ -1,16 +1,36 @@
 1.標籤備註
     <h1></h1>到<h6></h6>是由大到小的文字設定
-    <p> 是 元素標籤
+    <p></p> 是 元素標籤
     <br>是 換行標籤
-    <u> 是 底線標籤
-    <b> 是 粗體標籤
-    <span> 是 特殊標籤 與style的color做顏色調整
+    <u></u> 是 底線標籤
+    <b></b> 是 粗體標籤
+    <span></span> 是 特殊標籤 與style的color做顏色調整
     <hr> 是 水平橫線，類似分隔線
-    <ul></ul>是 用"．"符號當作開頭
-    <ol></ol>是 用"數字"當作開頭
-    <ol>可以加上type，調整開頭用法，例如<ol type="A"></ol>
-
+    <ul></ul> 是用"．"符號當作開頭
+    <ol></ol> 是用"數字"當作開頭
+        <ol>可以加上type，調整開頭用法，例如<ol type="A"></ol>
+    
+    <td></td> 是table row(表格行)的縮寫，用瑜表示一行的開始和結束。
+    <th></th> 是table head，表頭的縮寫。
+    <td></td> 是table data(表格數據)的縮寫，用於表示行中個個單元格(cell)的開始和結束
+    width="800"是寬度 height="400"是高度
+    
+    <a href="url">
+    <img src="" alt="">
+    </a>
+    用a標籤的href把img標籤包起來的話，圖片就能有辦法超連結過去，
+    例如連結到你的圖片來源，也能用在文字上做超連結！
 
 2.<span></span>
     是用來做特殊特殊標籤的，例如<span>stype="color:red"輝達外帶台式乾麵</span>
     這樣子<span>標籤裡的文字就會是紅色，CSS語法
+
+3.-.gitignore檔案
+    .gitignore的檔案，是用來忽視不需要控管的檔案，在裡面輸入
+    你不需要被控管的檔案名稱即可不被git納入管理範圍，也就是不會有
+    U、M、A符號標記。
+    如何忽視檔案？
+    在.gitignore裡面可以輸入的範例有：
+    A.image/ 意思是image資料的檔案不被控管
+    B.pic-1.jpg 意思是pic-1.jpg這個img不被控管
+    C.*.jpg 意思是所有jpg副檔名都不控管
