@@ -87,6 +87,9 @@ git checkout master
 22.複製專案
 - git clone https://github.com/ImAries0325/0319-demo.git
 
+23.加入暫存區的恢復 A->U (被控管->未被追蹤)
+- git restore
+- git restore --staged <filename>
 
 
 
