@@ -5,7 +5,21 @@
     <title>首頁</title>
 <!-- 影響整個CSS網頁 -->
     <style>
-    h2{
+    .main-title{
+    /* 用"-"而不是"_"，是因為寫程式才用"_" */
+        color:blueviolet;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        background-color:coral;
+        font-size: 3rem;
+        display: inline-block;
+        width: 600px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid red;
+        border-radius: 100px;
+    }
+    .title{
+    /* .title的"."，代表class */
         color: blueviolet;
         font-family:"新細明體", Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         background-color: coral;
@@ -13,12 +27,46 @@
         /* 1rem => 16px */
         display: inline-block;
         width: 600px;
+        margin: 10px 20px;
+        padding: 10px;
+        border: 1px solid red;
+        /* 大小 樣式 顏色 */
+        border-radius: 50px;
+        /* 邊邊角角更改弧度 */
+    }
+
+    #table-bmi{
+    /* "#"代表ID，唯一的 */
+        background-color: aqua;
+        width: 100%;
+        height: 200px;
+    }
+
+    thead{
+        background-color: aquamarine;
+    }
+
+    tbody{
+        background-color: tomato;
+    }
+
+    tr{
+        color: white;
+    }
+
+    thead tr{
+        color: black;
+    }
+
+    td{
+        background-color: tomato;
     }
 
     body{
         background-color:silver;
         font-family: "標楷體", Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     }
+
 
     </style>
 </head>
@@ -29,7 +77,9 @@
 <img width="100%" src="https://img.freepik.com/free-vector/fitness-gym-training-twitch-banner_23-2150681508.jpg" alt="健身圖片banner">
 </a>
 
-    <h1><span style="color: blueviolet;background-color:black;">我愛健身網站</span></h1>
+    <div class="main-title">我愛健身網站</span></div>
+    <!-- h1裡面的style大於span的設計，span只是針對文字做樣式 -->
+    <!-- <h1 style="color: blueviolet;background-color: black;">我愛健身網站</span></h1> -->
     <h3><span style="color: blue;">何謂健身?</span></h3>
     <p>
         健身，英文稱為<u><span style="color:brown;">workout</span></u>，健身這兩個字拆開來的意思就是健康身體，通過各種運動方式或方法來增強力量、增加肌肉量、柔韌性、耐力，以及提高協調和控制身體各部分的能力來使我們的身體更強健。
@@ -44,7 +94,7 @@
 
     <hr>
     <!-- style="color: blue;background-color: black;" -->
-    <h2><span style="color: blue;background-color: black;">健身的10個好處</span></h2>
+    <div class="title" >健身的10個好處</div>
     <ol type="1">
         <li>增加基礎代謝率</li>
         <li>預防疾病和提高免疫力</li>
@@ -66,7 +116,7 @@
 
     <hr>
    
-    <h2>好文章連結</h2>
+    <div class="title" >好文章連結</div>
     <ol type="A">
         <li><b><a target="_blank" href="https://www.peeta.tw/workout/abdominal-training/">間歇性斷食法完整攻略</a></b></li>
         <li><b><a target="_blank" href="https://www.peeta.tw/ketogenic/what-is-ketogenic-diet/">什麼是生酮飲食？</a></b></li>
@@ -77,17 +127,17 @@
         target="_blank"是另開新頁面的意思，不會把你當下網頁轉換-->
     </ol>
 <hr>
-    <h2>一天所需卡路里</h2>
-    <table border="5">
+    <div class="title" >一天所需卡路里</div>
+    <table id="table-bmi" border="5">
         <!--border是對應的框線-->
-        <thread>
+        <thead>
             <tr>
                 <th>每天活動量</th>
                 <th>體重過輕者所需熱量</th>
                 <th>體重正常者所需熱量</th>
                 <th>體重過重、肥胖者所需熱量</th>
             </tr>
-        </thread>
+        </thead>
         <tbody>
             <tr>
                 <td>輕度工作</td>
@@ -114,13 +164,13 @@
     <p><b>計算所需熱量:</b>因他的工作為坐辦公室，屬輕量工作，每天攝取熱量應在1300至1625大卡之間(=20~25大卡*65公斤)。</p>
     <!--"&nbsp "代表一個空白，一般用space key產生多個空白只會只有一個空白-->
 <hr>
-    <h2>健身圖片</h2>
+    <div class="title" >健身圖片</div>
     <img width="30%" src="images/pic-1.jpg" alt="pic-1.jpg">
     <!--alt用來讓圖片消失的時候提示字串-->>
     <img width="30%" src="images/pic-2.jpg" alt="pic-2.jpg">
     <img width="30%" src="images/pic-3.jpg" alt="pic-3.jpg">
 <hr>
-    <h2>健身影片</h2>
+    <div class="title" >健身影片</div>
     <!-- ctrl + / -->
     <!-- <video controls src="video/SampleVideo_1280x720_5mb.mp4"></video> -->
     <iframe width="48%" height="360" src="https://www.youtube.com/embed/L1BTJsDAWjo" title="7 分鐘居家徒手腹肌訓練【初級版】無裝備｜7 Min Standing Abs workout｜非常適合初學者入門也有效加强核心的訓練｜男生和女生都適合的健身訓練【健身運動】" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
