@@ -1,0 +1,40 @@
+/* 共用css區 */
+
+
+body {
+    text-align: center;
+    background-color: silver;
+    font-family: "標楷體", Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.main-title {
+    /* 用"-"而不是"_"，是因為寫程式才用"_" */
+    color: blueviolet;
+    background-color: coral;
+    font-size: 3rem;
+    border: none;
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: inline-block;
+    width: 600px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 100px; */
+}
+
+.title {
+    /* .title的"."，代表class */
+    color: blueviolet;
+    font-family: "新細明體", Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: coral;
+    font-size: 2rem;
+    /* 1rem => 16px */
+    display: inline-block;
+    width: 600px;
+    margin: 10px 20px;
+    padding: 10px;
+    border: 1px solid red;
+    /* 大小 樣式 顏色 */
+    border-radius: 50px;
+    /* 邊邊角角更改弧度 */
+}

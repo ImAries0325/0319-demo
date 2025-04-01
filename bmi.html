@@ -1,12 +1,121 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI計算機</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .main-title {
+            color: blue;
+        }
+
+        form {
+            width: 40%;
+            background-color: coral;
+            margin: 24px auto;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 12px 12px 5px rgb(68, 100, 110, 0.8);
+        }
+
+        input {
+            margin: 6px 0px;
+            font-size: 20px;
+            text-align: center;
+            border-radius: 6px;
+        }
+
+        /* label文字大小 */
+        /* 性別/居住縣市 使用div */
+        label {
+            font-size: 20px;
+            text-shadow: 1px 1px 2px;
+        }
+
+        select {
+            font-size: 16px;
+        }
+
+        .panel1 {
+            background-color: silver;
+            padding: 6px;
+            border: 2px dotted pink;
+            margin: 6px;
+        }
+
+        button {
+            margin-top: 1rem;
+            width: 120px;
+            height: 35px;
+            background-color: rgb(124, 179, 124);
+            border: none;
+            font-size: 16px;
+            border-radius: 6px;
+            color: white;
+        }
+
+        button:hover {
+            background-color: cadetblue;
+            cursor: pointer;
+        }
+
+        a {
+            background-color: brown;
+            color: white;
+            padding: 12px;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: yellow;
+            cursor: pointer;
+        }
+    </style>
+    <!-- <style>
+        .bmi-title{
+            text-align: center;
+            font-size: 3rem;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: blueviolet;
+        }
+
+        .bmi-text{
+            text-align: center;
+            font-size: 1.5rem;
+            font-family: "新細明體", Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color:brown;
+        }
+
+        .bmi-url{
+            text-align: center;
+            font-size: 2rem;
+            font-family: "標楷體", Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            display: block;
+        }
+
+        body{
+            background-color: skyblue;
+        }
+
+        .sex-male{
+            color: blue;
+            font-size: 1.2rem;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+        }
+        .sex-female{
+            color: red;
+            font-size: 1.2rem;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+        }
+    </style> -->
 </head>
+
 <body>
-    <h1>BMI計算機</h1>
+    <h1 class="main-title">BMI計算機</h1>
     <form action="">
         <label for="username">姓名</label>
         <input id="username" name="username" type="text" placeholder="請輸入姓名"><br>
@@ -17,24 +126,51 @@
         <label for="weight">體重</label>
         <input id="weight" name="weight" type="number" placeholder="請輸入體重" step="0.1">
 
-        <br><input type="radio" name="sex" id="male" checked> 男
-        <input type="radio" name="sex" id="female"> 女
-
-        <label for="county">居住縣市</label>
-        <select name="county" id="county">
-            <option value="台北市">台北市</option>
-            <option value="新北市">新北市</option>
-            <option value="桃園市">桃園市</option>
-            <option value="台中市">台中市</option>
-            <option value="台南市">台南市</option>
-            <option value="高雄市">高雄市</option>
-        </select>
         <br>
+        <div class="panel1">
+            <input type="radio" name="sex" id="male" checked><span class="sex-male">男</span>
+            <input type="radio" name="sex" id="female"> <span class="sex-female">女</span>
+
+            <label for="county"><span style="color: black;font-size: 1.2rem;">居住縣市</span></label>
+            <select name="county" id="county">
+                <option value="台北市">台北市</option>
+                <option value="新北市">新北市</option>
+                <option value="桃園市">桃園市</option>
+                <option value="台中市">台中市</option>
+                <option value="台南市">台南市</option>
+                <option value="高雄市">高雄市</option>
+            </select>
+        </div>
         <button type="submit">計算</button>
+        <!-- <p id="bmi-result" class="bmi-text"><button type="submit">計算</button></p> -->
 
 
     </form>
     <a href="index.html">首頁</a>
     <!--主頁導向超連結-->
+    <!-- <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault(); // 阻止表單提交刷新頁面
+    
+            // 取得使用者輸入的值
+            let height = parseFloat(document.getElementById("height").value) / 100; // 轉換成公尺
+            let weight = parseFloat(document.getElementById("weight").value);
+    
+            // 檢查輸入是否有效
+            if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+                document.getElementById("bmi-result").textContent = "請輸入有效的身高和體重";
+                return;
+            }
+    
+            // 計算 BMI
+            let bmi = weight / (height * height);
+            bmi = bmi.toFixed(2); // 取小數點後兩位
+    
+            // 顯示 BMI 結果
+            document.getElementById("bmi-result").textContent = "您的 BMI 為：" + bmi;
+        });
+    </script> -->
+
 </body>
+
 </html>

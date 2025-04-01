@@ -1,107 +1,77 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
     <title>首頁</title>
-<!-- 影響整個CSS網頁 -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 影響整個CSS網頁 -->
     <style>
-    .main-title{
-    /* 用"-"而不是"_"，是因為寫程式才用"_" */
-        color:blueviolet;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        background-color:coral;
-        font-size: 3rem;
-        display: inline-block;
-        width: 600px;
-        margin: 10px;
-        padding: 10px;
-        border: 1px solid red;
-        border-radius: 100px;
-    }
-    .title{
-    /* .title的"."，代表class */
-        color: blueviolet;
-        font-family:"新細明體", Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        background-color: coral;
-        font-size: 2rem;
-        /* 1rem => 16px */
-        display: inline-block;
-        width: 600px;
-        margin: 10px 20px;
-        padding: 10px;
-        border: 1px solid red;
-        /* 大小 樣式 顏色 */
-        border-radius: 50px;
-        /* 邊邊角角更改弧度 */
-    }
+        #table-bmi {
+            /* "#"代表ID，唯一的 */
+            background-color: aqua;
+            width: 50%;
+            height: 200px;
+            margin: 0 auto;
+        }
 
-    #table-bmi{
-    /* "#"代表ID，唯一的 */
-        background-color: aqua;
-        width: 50%;
-        height: 200px;
-        margin: 0 auto;
-    }
+        #picture {
+            text-align: center;
+            border-radius: 16px;
+            /* display: inline-block; */
+        }
 
-    #picture{
-        text-align: center;
-        border-radius: 16px;
-        /* display: inline-block; */
-    }
-    .img-style{
-        background-color: white;
-        padding: 3px;
-        border: 1px solid;
-        border-radius: 6px;
-        width: 30%;
-    }
+        .img-style {
+            background-color: white;
+            padding: 3px;
+            border: 1px solid;
+            border-radius: 6px;
+            width: 30%;
+        }
 
-    .video{
-        text-align: center;
-    }
+        .video {
+            text-align: center;
+        }
 
-    thead{
-        background-color: aquamarine;
-    }
+        thead {
+            background-color: aquamarine;
+        }
 
-    tbody{
-        background-color: tomato;
-    }
+        tbody {
+            background-color: tomato;
+        }
 
-    tr{
-        color: white;
-    }
+        tr {
+            color: white;
+        }
 
-    thead tr{
-        color: black;
-    }
+        thead tr {
+            color: black;
+        }
 
-    td{
-        background-color: tomato;
-    }
-
-    body{
-        text-align: center;
-        background-color:silver;
-        font-family: "標楷體", Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    }
-
-
+        td {
+            background-color: tomato;
+        }
     </style>
 </head>
+
 <body>
 
-<a target="_blank" href="https://zh.freepik.com/%E5%85%8D%E8%B2%BB%E7%9F%A2%E9%87%8F/fitness-gym-training-twitch-banner_58556371.htm">
+    <a target="_blank"
+        href="https://zh.freepik.com/%E5%85%8D%E8%B2%BB%E7%9F%A2%E9%87%8F/fitness-gym-training-twitch-banner_58556371.htm">
 
-<img width="100%" src="https://img.freepik.com/free-vector/fitness-gym-training-twitch-banner_23-2150681508.jpg" alt="健身圖片banner">
-</a>
+        <img width="100%" src="https://img.freepik.com/free-vector/fitness-gym-training-twitch-banner_23-2150681508.jpg"
+            alt="健身圖片banner">
+    </a>
 
     <div class="main-title">我愛健身網站</span></div>
     <!-- h1裡面的style大於span的設計，span只是針對文字做樣式 -->
     <!-- <h1 style="color: blueviolet;background-color: black;">我愛健身網站</span></h1> -->
     <h3><span style="color: blue;">何謂健身?</span></h3>
     <p>
-        健身，英文稱為<u><span style="color:brown;">workout</span></u>，健身這兩個字拆開來的意思就是健康身體，通過各種運動方式或方法來增強力量、增加肌肉量、柔韌性、耐力，以及提高協調和控制身體各部分的能力來使我們的身體更強健。
+        健身，英文稱為<u><span
+                style="color:brown;">workout</span></u>，健身這兩個字拆開來的意思就是健康身體，通過各種運動方式或方法來增強力量、增加肌肉量、柔韌性、耐力，以及提高協調和控制身體各部分的能力來使我們的身體更強健。
         <br>除了塑造好身材，透過健身可以刺激我們身體的肌肉，再搭配飲食的控制，這能大大幫助我們的肌肉量增加，以及讓我們的肌肉更加的結實。
         <br>如果你對健身仍然保持著懷疑的態度，那你大可以去看看你喜歡的健身老戲骨幹，他們是如何做到年過50/60歲，依舊在<br>舞臺上或者是電影螢幕上綻放光彩。答案就是堅持<b>運動健身!</b>
     </p>
@@ -111,9 +81,9 @@
         <span>特殊標籤 與style的color做顏色調整 -->
     <p>
 
-    <hr>
-    <!-- style="color: blue;background-color: black;" -->
-    <div class="title" >健身的10個好處</div>
+        <hr>
+        <!-- style="color: blue;background-color: black;" -->
+    <div class="title">健身的10個好處</div>
     <ol type="1" style="text-align: left;">
         <li>增加基礎代謝率</li>
         <li>預防疾病和提高免疫力</li>
@@ -134,8 +104,8 @@
     </p>
 
     <hr>
-   
-    <div class="title" >好文章連結</div>
+
+    <div class="title">好文章連結</div>
     <ol type="A" style="text-align: left;">
         <li><b><a target="_blank" href="https://www.peeta.tw/workout/abdominal-training/">間歇性斷食法完整攻略</a></b></li>
         <li><b><a target="_blank" href="https://www.peeta.tw/ketogenic/what-is-ketogenic-diet/">什麼是生酮飲食？</a></b></li>
@@ -145,8 +115,8 @@
         <!--可以br換行也能用ol+li做版面調整，我比較喜歡用ol+li
         target="_blank"是另開新頁面的意思，不會把你當下網頁轉換-->
     </ol>
-<hr>
-    <div class="title" >一天所需卡路里</div>
+    <hr>
+    <div class="title">一天所需卡路里</div>
     <table id="table-bmi" border="5">
         <!--border是對應的框線-->
         <thead>
@@ -179,28 +149,38 @@
         </tbody>
     </table>
     <div style="text-align: left;margin: 12px;">
-    <a href="bmi.html">
-    <p><b>計算BMI:</b></a>&nbsp; 一位民眾身高160公分，體重65公斤，BMI25.4kg/m2(=65÷1.6÷1.6)，體重屬於「過重」。</p>
-    <p><b>計算所需熱量:</b>因他的工作為坐辦公室，屬輕量工作，每天攝取熱量應在1300至1625大卡之間(=20~25大卡*65公斤)。</p>
+        <a href="bmi.html">
+            <p><b>計算BMI:</b>
+        </a>&nbsp; 一位民眾身高160公分，體重65公斤，BMI25.4kg/m2(=65÷1.6÷1.6)，體重屬於「過重」。</p>
+        <p><b>計算所需熱量:</b>因他的工作為坐辦公室，屬輕量工作，每天攝取熱量應在1300至1625大卡之間(=20~25大卡*65公斤)。</p>
     </div>
     <!--"&nbsp "代表一個空白，一般用space key產生多個空白只會只有一個空白-->
-<hr>
-    <div class="title" >健身圖片</div>
+    <hr>
+    <div class="title">健身圖片</div>
 
     <div id="picture">
-    <!-- 將三張圖片插入 -->
-    <img class="img-style" src="images/pic-1.jpg" alt="pic-1.jpg">
-    <!--alt用來讓圖片消失的時候提示字串-->>
-    <img class="img-style" src="images/pic-2.jpg" alt="pic-2.jpg">
-    <img class="img-style" src="images/pic-3.jpg" alt="pic-3.jpg">
+        <!-- 將三張圖片插入 -->
+        <img class="img-style" src="images/pic-1.jpg" alt="pic-1.jpg">
+        <!--alt用來讓圖片消失的時候提示字串-->>
+        <img class="img-style" src="images/pic-2.jpg" alt="pic-2.jpg">
+        <img class="img-style" src="images/pic-3.jpg" alt="pic-3.jpg">
     </div>
-<hr>
-    <div class="title" >健身影片</div>
+    <hr>
+    <div class="title">健身影片</div>
     <!-- ctrl + / -->
     <!-- <video controls src="video/SampleVideo_1280x720_5mb.mp4"></video> -->
     <div id="video">
-    <iframe width="48%" height="360" src="https://www.youtube.com/embed/L1BTJsDAWjo" title="7 分鐘居家徒手腹肌訓練【初級版】無裝備｜7 Min Standing Abs workout｜非常適合初學者入門也有效加强核心的訓練｜男生和女生都適合的健身訓練【健身運動】" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <iframe width="48%" height="360" src="https://www.youtube.com/embed/ZUNQ6t_cthk" title="12 分鐘居家徒手腹肌訓練【初級版】無裝備｜12 Min Standing Abs workout｜非常適合初學者入門也有效加强核心的訓練｜男生和女生都適合的健身訓練【健身運動】" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="48%" height="360" src="https://www.youtube.com/embed/L1BTJsDAWjo"
+            title="7 分鐘居家徒手腹肌訓練【初級版】無裝備｜7 Min Standing Abs workout｜非常適合初學者入門也有效加强核心的訓練｜男生和女生都適合的健身訓練【健身運動】"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="48%" height="360" src="https://www.youtube.com/embed/ZUNQ6t_cthk"
+            title="12 分鐘居家徒手腹肌訓練【初級版】無裝備｜12 Min Standing Abs workout｜非常適合初學者入門也有效加强核心的訓練｜男生和女生都適合的健身訓練【健身運動】"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 </body>
+
 </html>
