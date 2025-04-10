@@ -91,6 +91,24 @@ git checkout master
 - git restore
 - git restore --staged <filename>
 
+### 拉取雲端分支
+
+- 觀察雲端分支
+- git branch -r
+
+- fetch 拉取缺少的分支 (只是拉取分支，還是需要自己產生分支[下面的指令])
+- git fetch
+
+- 同步缺少分支
+- git checkout -b test origin/test  (test是分支名稱)
+
+
+#原本做法會有許多bug，改用上面方法
+- git checkout -b test
+- git pull origin test -f
+
+
+
 
 
 
