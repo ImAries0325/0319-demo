@@ -13,6 +13,8 @@
         }
 
         form {
+            /* 相對位置 */
+            position: relative;
             width: 40%;
             background-color: coral;
             margin: 24px auto;
@@ -63,11 +65,15 @@
         }
 
         a {
+            /* 絕對位置(相對於relatiive) */
+            position: absolute;
             background-color: brown;
             color: white;
             padding: 12px;
             border-radius: 6px;
             text-decoration: none;
+            right: 12px;
+            top: 12px
         }
 
         a:hover {
@@ -152,7 +158,10 @@
 </head>
 
 <body>
-    <h1 class="main-title">BMI計算機</h1>
+    <div class="main-title">BMI計算機</div>
+
+    <div id="record"></div>
+
     <form action="">
         <label for="username">姓名</label>
         <input id="username" name="username" type="text" placeholder="請輸入姓名"><br>
@@ -179,6 +188,7 @@
             </select>
         </div>
         <button type="button" onclick="calc()">計算</button>
+        <a href="index.html">首頁</a>
         <!-- <p id="bmi-result" class="bmi-text"><button type="submit">計算</button></p> -->
 
 
@@ -188,17 +198,14 @@
     <div id="info">
 
     </div>
-    <div id="result">
+    <div id="result" hidden="true">
         BMI:<span class="bmi">
-            24.5
         </span>
         <p class="comment">
-            正常
         </p>
 
     </div>
 
-    <a href="index.html">首頁</a>
     <!--主頁導向超連結-->
     <!-- <script>
         document.querySelector("form").addEventListener("submit", function(event) {
@@ -228,6 +235,13 @@
         const heightEl = document.querySelector("#height");
         const weightEl = document.querySelector("#weight");
         const countyEl = document.querySelector("#county");
+
+        // 物件
+        let data = {
+            total: 0,
+            count: 0
+        }
+
         // const sexEl = document.querySelector("input[name='sex']:checked");
 
         // console.log(sexEl.value, countyEl.value, nameEl, ageEl, heightEl, weightEl, heightEl.value, weightEl.value);
@@ -244,6 +258,9 @@
                 return;
             }
 
+            // 取消隱藏
+            document.querySelector("#result").hidden = false;
+
             // 取得最新的選取
             const sexEl = document.querySelector("input[name='sex']:checked");
             let userInfo = `${nameEl.value} 年齡:${ageEl.value} 性別:${sexEl.value} 縣市:${countyEl.value}`;
@@ -254,17 +271,23 @@
             let bmi = getBmi(height, weight);
             let result = getComment(bmi);
 
+            console.log(bmi, result[0], result[1]);
 
             const bmiEl = document.querySelector(".bmi")
             bmiEl.innerText = bmi;
             bmiEl.style.color = result[1];
             document.querySelector(".comment").innerText = result[0]
 
+            // 紀錄每次的bmi
+            data.total += Number(bmi);
+            data.count += 1;
+
+            console.log(data);
+            let avg = (data.total / data.count).toFixed(1)
+            document.querySelector("#record").innerHTML = `紀錄人數:${data.count} 平均BMI:${avg}`;
 
 
 
-
-            console.log(bmi, result[0], result[1]);
             // document.querySelector("#result").innerHTML = `<h1>BMI:${bmi}<br>${comment}</h1>`;
         }
 
