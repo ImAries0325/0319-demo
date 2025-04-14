@@ -115,6 +115,10 @@
                 color: black
             }
 
+            #record {
+                font-size: 32px;
+                margin-top: 24px;
+            }
 
         }
     </style>
@@ -159,7 +163,7 @@
 
 <body>
     <div class="main-title">BMI計算機</div>
-
+    <button type="button" style="background-color:rgb(182, 11, 11) ;" id="deleteRecordBtn">刪除紀錄</button>
     <div id="record"></div>
 
     <form action="">
@@ -235,12 +239,38 @@
         const heightEl = document.querySelector("#height");
         const weightEl = document.querySelector("#weight");
         const countyEl = document.querySelector("#county");
+        const deleteRecordBtnEl = document.querySelector("#deleteRecordBtn");
+
+        console.log(deleteRecordBtn);
+
+        deleteRecordBtnEl.addEventListener("click", function () {
+            localStorage.removeItem("record");
+            // 刷新頁面
+            // window.location.href = "";
+            // 清除資料
+            data.total = 0;
+            data.count = 0;
+            document.querySelector("#record").innerHTML = "";
+        });
+
 
         // 物件
         let data = {
             total: 0,
             count: 0
         }
+
+        // 將字串轉成物件
+        record = JSON.parse(localStorage.getItem("record"));
+        // record沒值就是null => if (record!=null)
+        if (record) {
+            data = record;
+            // 加入顯示紀錄動作
+            let avg = (data.total / data.count).toFixed(1);
+            document.querySelector("#record").innerHTML = `紀錄人數:${data.count} 平均BMI:${avg}`;
+        }
+        console.log(data);
+
 
         // const sexEl = document.querySelector("input[name='sex']:checked");
 
@@ -283,12 +313,13 @@
             data.count += 1;
 
             console.log(data);
-            let avg = (data.total / data.count).toFixed(1)
+            let avg = (data.total / data.count).toFixed(1);
             document.querySelector("#record").innerHTML = `紀錄人數:${data.count} 平均BMI:${avg}`;
-
-
-
             // document.querySelector("#result").innerHTML = `<h1>BMI:${bmi}<br>${comment}</h1>`;
+
+            // 本地網頁儲存(物件轉換成字串)
+            localStorage.setItem("record", JSON.stringify(data));
+
         }
 
         function getComment(bmi) {
