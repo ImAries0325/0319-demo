@@ -105,6 +105,18 @@
             font-size: 2.5rem;
         }
 
+        table {
+            background-color: rgb(220, 255, 243);
+            margin: 0 auto;
+            width: 600px;
+            font-family: 'Courier New', Courier, monospace;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: aqua;
+        }
+
         @media screen and (max-width:1024px) {
             form {
                 width: 60%;
@@ -120,6 +132,9 @@
                 margin-top: 24px;
             }
 
+            table {
+                width: 450px;
+            }
         }
     </style>
     <!-- <style>
@@ -163,7 +178,6 @@
 
 <body>
     <div class="main-title">BMI計算機</div>
-    <button type="button" style="background-color:rgb(182, 11, 11) ;" id="deleteRecordBtn">刪除紀錄</button>
     <div id="record"></div>
 
     <form action="">
@@ -192,6 +206,7 @@
             </select>
         </div>
         <button type="button" onclick="calc()">計算</button>
+        <button type="button" style="background-color:rgb(182, 11, 11) ;" id="deleteRecordBtn">刪除紀錄</button>
         <a href="index.html">首頁</a>
         <!-- <p id="bmi-result" class="bmi-text"><button type="submit">計算</button></p> -->
 
@@ -207,6 +222,10 @@
         </span>
         <p class="comment">
         </p>
+
+    </div>
+
+    <div id="tableRecord">
 
     </div>
 
@@ -245,12 +264,15 @@
 
         deleteRecordBtnEl.addEventListener("click", function () {
             localStorage.removeItem("record");
+            localStorage.removeItem("datas");
             // 刷新頁面
             // window.location.href = "";
             // 清除資料
             data.total = 0;
             data.count = 0;
+            datas = [];
             document.querySelector("#record").innerHTML = "";
+            document.querySelector("#tableRecord").innerHTML = "";
         });
 
 
@@ -261,10 +283,11 @@
         }
 
         // 陣列、串列
-        let datas = [];
-
+        let datas = JSON.parse(localStorage.getItem("datas")) || [];
         // 將字串轉成物件
         record = JSON.parse(localStorage.getItem("record"));
+
+
         // record沒值就是null => if (record!=null)
         if (record) {
             data = record;
@@ -272,12 +295,62 @@
             let avg = (data.total / data.count).toFixed(1);
             document.querySelector("#record").innerHTML = `紀錄人數:${data.count} 平均BMI:${avg}`;
         }
-        console.log(data);
-
 
         // const sexEl = document.querySelector("input[name='sex']:checked");
-
         // console.log(sexEl.value, countyEl.value, nameEl, ageEl, heightEl, weightEl, heightEl.value, weightEl.value);
+
+        if (datas.length > 0) {
+            renderTable(datas);
+        }
+        function addRow(data) {
+
+            return `
+            <tr>
+                <td>${data.name}</td>
+                <td>${data.county}</td>
+                <td>${data.age}</td>
+                <td>${data.sex}</td>
+                <td>${data.height}</td>
+                <td>${data.weight}</td>
+                <td>${data.bmi}</td>
+            </tr>
+            `;
+        }
+
+        function renderTable(datas) {
+            tableData = "";
+            for (let i = 0; i < datas.length; i++) {
+                console.log(i + 1, datas[i]);
+                tableData += addRow(datas[i]);
+            }
+
+            let tableHtml = `
+            <table border="1px">
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>縣市</th>
+                        <th>年齡</th>
+                        <th>性別</th>
+                        <th>身高</th>
+                        <th>體重</th>
+                        <th>bmi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                ${tableData}
+                </tbody>
+            </table>
+            `;
+
+            console.log(tableHtml);
+
+            document.querySelector("#tableRecord").innerHTML = tableHtml;
+
+        }
+
+
+
 
 
 
@@ -313,10 +386,10 @@
 
             console.log(bmi, result[0], result[1]);
 
-            const bmiEl = document.querySelector(".bmi")
+            const bmiEl = document.querySelector(".bmi");
             bmiEl.innerText = bmi;
             bmiEl.style.color = result[1];
-            document.querySelector(".comment").innerText = result[0]
+            document.querySelector(".comment").innerText = result[0];
 
             // 紀錄每次的bmi
             data.total += Number(bmi);
@@ -344,9 +417,11 @@
             }
             // push 等於 python的.append()
             datas.push(person);
-            console.log(datas);
+            // console.log(datas);
             // 儲存datas
-            localStorage.setItem("person", JSON.stringify(datas))
+            localStorage.setItem("datas", JSON.stringify(datas));
+
+            renderTable(datas);
 
 
         }
@@ -374,7 +449,7 @@
         function getBmi(height, weight) {
             const bmi = weight / (height / 100) ** 2;
 
-            return bmi.toFixed(2)
+            return bmi.toFixed(2);
         }
 
 
